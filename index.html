@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+function onLoad(){
+var url='http://igovphil.github.io/java-exam-01/uacs-agency.json';
+$.getJSON(url, function(json){
+var table = $('<table>');
+table.attr('border','1');
+var tr = $('<tr>');
+var td = $('<td>');
+td.html('<b>UACS</b>');
+tr.append(td);
+td = $('<td>');
+td.html('<b>DEPARTMENT</b>');
+tr.append(td);
+td = $('<td>');
+td.html('<b>AGENCY</b>');
+tr.append(td);
+table.append(tr);
+for( var i=0; i<json.length;i++)
+{
+var tr = $('<tr>');
+var td = $('<td>');
+td.html(json[i].uacs);
+tr.append(td);
+td = $('<td>');
+td.html(json[i].department);
+tr.append(td);
+td = $('<td>');
+td.html(json[i].agency);
+tr.append(td);
+table.append(tr);
+}
+$('body').append(table);
+});
+}
+</script>
+</head>
+<body onload ="onLoad();">
+</body>
+</html> 
